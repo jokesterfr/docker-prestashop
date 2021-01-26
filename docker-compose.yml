@@ -17,7 +17,6 @@ services:
       - PS_DEMO_MODE=0
       - PS_INSTALL_AUTO=1
       - PS_ERASE_DB=1
-      - PS_DOMAIN=localhost:8000
       - PS_FOLDER_INSTALL=install.old
       - PS_FOLDER_ADMIN=admin-test
       - ADMIN_MAIL=demo@prestashop.com
@@ -53,6 +52,23 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+  ngrok:
+    image: wernight/ngrok
+    restart: always
+    depends_on:
+      - prestashop
+    networks:
+      - ps_net
+    environment:
+      - NGROK_BINDTLS=false
+      - NGROK_DEBUG=true
+      - NGROK_REGION=eu
+      - NGROK_PROTOCOL=http
+      - NGROK_PORT=prestashop:80
+      - NGROK_AUTH=$NGROK_TOKEN
+    ports:
+      - 4040:4040
 
 networks:
   ps_net:
