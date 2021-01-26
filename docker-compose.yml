@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # browse http://localhost:8000/admin-test/
+  # then login: demo@prestashop.com / prestashop_demo
+  prestashop:
+    image: prestashop/prestashop:1.7-7.3-apache
+    # image: prestashop/prestashop:1.7-7.3-fpm
+    depends_on:
+      - mysql
+    networks:
+      - ps_net
+    environment:
+      - DB_NAME=ps_apache_testing
+      - DB_PASSWD=
+      - DB_SERVER=mysql
+      - PS_DEMO_MODE=0
+      - PS_INSTALL_AUTO=1
+      - PS_ERASE_DB=1
+      - PS_DOMAIN=localhost:8000
+      - PS_FOLDER_INSTALL=install.old
+      - PS_FOLDER_ADMIN=admin-test
+      - ADMIN_MAIL=demo@prestashop.com
+      - ADMIN_PASSWD=prestashop_demo
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 1m
+    volumes:
+      - ./ps_scripts/pre_install/:/tmp/pre-install-scripts:ro
+      - ./ps_scripts/post_install/:/tmp/init-scripts/:ro
+      - ./ps_modules:/tmp/modules/:ro
+      - /tmp/ps_modules_live:/var/www/html/modules:rw
+    ports:
+      - 8000:80
+
+  # /!\ no data persistence here: testing purpose only
+  mysql:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - ps_net
+    expose:
+      - '3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+networks:
+  ps_net:
