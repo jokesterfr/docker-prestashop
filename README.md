@@ -4,8 +4,8 @@ Quickly bootstrap a local prestashop env with docker-compose
 
 ## Requirements
 
-- [docker](https://docs.docker.com/get-docker/) 
-- [docker-compose](https://docs.docker.com/compose/install/) 
+- [docker](https://docs.docker.com/get-docker/)
+- [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Usage
 
@@ -14,3 +14,6 @@ $ alias dc="docker-compose" # you may store this in ~/.bash_aliases and source ~
 $ dc up -d prestashop
 ```
 
+## Ressources
+
+- https://hub.docker.com/r/prestashop/prestashop
