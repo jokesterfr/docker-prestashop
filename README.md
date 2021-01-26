@@ -23,7 +23,7 @@ Run the server:
 
 ```bash
 $ alias dc="docker-compose" # you may store this in ~/.bash_aliases and source ~/.bashrc
-$ dc up -d
+$ dc down && dc up -d
 ```
 
 Wait a few minutes and your server will be up, ready to be used from http://localhost:8000/ (will redirect you to a public url like `http://xxxxxxxxxxxx.ngrok.io`).
