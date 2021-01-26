@@ -1,6 +1,6 @@
 # docker-prestashop
 
-Quickly bootstrap a local prestashop env with docker-compose
+Quickly bootstrap a local and broadly shareable prestashop instance with docker-compose.
 
 ## Requirements
 
