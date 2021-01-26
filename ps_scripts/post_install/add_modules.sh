@@ -7,4 +7,3 @@
 #   echo "--> installing $module from $file...";
 #   $INSTALL_PS_MODULE $module $file
 # done;
-echo "done"
