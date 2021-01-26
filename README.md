@@ -12,6 +12,7 @@ Quickly bootstrap a local prestashop env with docker-compose
 ```bash
 $ alias dc="docker-compose" # you may store this in ~/.bash_aliases and source ~/.bashrc
 $ dc up -d prestashop
+$ open http://localhost:8000/admin-test/ # login: demo@prestashop.com / prestashop_demo
 ```
 
 ## Ressources
