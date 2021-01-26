@@ -6,7 +6,7 @@ Quickly bootstrap a local prestashop env with docker-compose
 
 - [docker](https://docs.docker.com/get-docker/)
 - [docker-compose](https://docs.docker.com/compose/install/)
-- [ngrok](https://ngrok.com/download)
+- (optional) an [ngrok](https://ngrok.com/) account
 
 ## Usage
 
