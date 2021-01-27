@@ -39,3 +39,13 @@ Go to http://localhost:8000/admin-test/ to access to your back office, and login
 
 - https://hub.docker.com/r/prestashop/prestashop
 - https://hub.docker.com/r/wernight/ngrok
+
+## What's next
+
+Some ideas for the future:
+
+- enhance performances: https://github.com/PrestaShop/performance-project
+- propose a custom Docker image based on:
+  * php-fpm / apache or nginx
+  * SQLite
+- get cleaner docker logs, and add an output for ngrok client info
