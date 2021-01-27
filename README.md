@@ -50,3 +50,5 @@ Some ideas for the future:
   * SQLite
 - get cleaner docker logs, and add an output for ngrok client info
 - add mailHog support https://github.com/mailhog/MailHog
+- add settings to support HTTPS (with self-signed certs or Let's encrypt) or basic HTTP
+
