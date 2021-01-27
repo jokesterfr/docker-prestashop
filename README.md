@@ -49,3 +49,4 @@ Some ideas for the future:
   * php-fpm / apache or nginx
   * SQLite
 - get cleaner docker logs, and add an output for ngrok client info
+- add mailHog support https://github.com/mailhog/MailHog
