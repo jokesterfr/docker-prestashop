@@ -68,7 +68,7 @@ services:
     environment:
       - NGROK_BINDTLS=false
       - NGROK_DEBUG=true
-      - NGROK_REGION=eu
+      - NGROK_REGION=us
       - NGROK_PROTOCOL=http
       - NGROK_LOOK_DOMAIN=prestashop
       - NGROK_PORT=80
